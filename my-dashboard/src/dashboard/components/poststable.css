@@ -1,0 +1,45 @@
+/* 📄 PostsTable Styles */
+
+.table-container {
+  max-height: 50vh;         /* Fixed height */
+  overflow-y: auto;         /* Enable vertical scroll */
+  border-radius: 8px;
+  border: 1px solid #e0e0e0;
+}
+
+/* Sticky header */
+.table-container thead th {
+  position: sticky;
+  top: 0;
+  background: #f4f6f8;
+  z-index: 1;
+  font-weight: 600;
+}
+
+/* Table layout */
+.table-container table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+/* Cells */
+.table-container th,
+.table-container td {
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1px solid #eee;
+  vertical-align: top;
+}
+
+/* Hover effect */
+.table-container tbody tr:hover {
+  background: #f9fafb;
+}
+
+/* Text wrapping for long post content */
+.table-container td:nth-child(2) {
+  white-space: normal;
+  word-break: break-word;
+  max-width: 400px;   /* Adjust width for readability */
+}
