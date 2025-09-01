@@ -1,0 +1,168 @@
+# Technical Documentation for RAG-Demo
+
+## 1. Overview of the Project
+
+**Project Name:** RAG-Demo
+
+The RAG-Demo project is designed to provide a framework for loading PDF documents, splitting their contents into manageable chunks, and embedding these chunks using a machine learning model. The embeddings are then stored in a Pinecone database for efficient retrieval and search capabilities. This project integrates various tools and libraries to achieve a seamless process for document indexing and embedding using generative AI.
+
+## 2. Technical Specifications and Architecture
+
+The RAG-Demo utilizes the following components:
+
+- **Node.js Runtime:** The project is built on Node.js, leveraging its asynchronous capabilities to handle I/O operations efficiently.
+- **dotenv:** Used for managing environment variables securely, making it easy to configure API keys and other sensitive information.
+- **@langchain/community/document_loaders/fs:** A community library for loading documents from file systems, specifically PDFs in this context.
+- **@langchain/textsplitters:** This library allows for the splitting of text into smaller chunks while maintaining overlaps, facilitating better embedding processes.
+- **@langchain/google-genai:** Provides APIs for generating embeddings using Google’s Generative AI models.
+- **@pinecone-database/pinecone:** A client library for interacting with the Pinecone vector database, crucial for storing and retrieving vector embeddings.
+- **@langchain/pinecone:** A wrapper for interacting with Pinecone, simplifying the process of embedding documents and storing them.
+
+### Architecture Diagram
+
+```plaintext
+[PDF File] --> [PDFLoader] --> [Text Splitter] --> [Embedding Model] --> [Pinecone Database]
+```
+
+## 3. Dependencies and Requirements
+
+### Required Software
+
+- **Node.js**: Version 14.x or higher
+- **NPM** (Node Package Manager): Version 6.x or higher
+
+### Installable Packages
+
+The following packages are required as dependencies:
+
+```json
+{
+  "dependencies": {
+    "@langchain/community": "^x.x.x",
+    "@langchain/textsplitters": "^x.x.x",
+    "@langchain/google-genai": "^x.x.x",
+    "@pinecone-database/pinecone": "^x.x.x",
+    "@langchain/pinecone": "^x.x.x",
+    "dotenv": "^x.x.x"
+  }
+}
+```
+
+### Environment Variables
+
+Ensure to create a `.env` file in the root directory with the following content:
+
+```
+GEMINI_API_KEY=YOUR_GENERATIVE_AI_API_KEY
+PINECONE_API_KEY=YOUR_PINECONE_API_KEY
+PINECONE_ENVIRONMENT=us-east-1
+PINECONE_INDEX_NAME=ragindex
+```
+
+*Replace `YOUR_GENERATIVE_AI_API_KEY` and `YOUR_PINECONE_API_KEY` with your actual API keys.*
+
+## 4. Installation and Setup Instructions
+
+1. **Clone the Repository:**
+
+   ```bash
+   git clone <repository-url>
+   cd rag-demo
+   ```
+
+2. **Install Dependencies:**
+
+   Make sure you have Node.js and npm installed. Run the following command to install the required packages:
+
+   ```bash
+   npm install
+   ```
+
+3. **Set Up Environment Variables:**
+
+   Create a `.env` file in the root directory and populate it with the required API keys as described in the previous section.
+
+4. **Run the Application:**
+
+   You can run the indexDocument function using the following command:
+
+   ```bash
+   node index.js
+   ```
+
+## 5. Usage Examples and Code Snippets
+
+### Loading and Indexing a PDF Document
+
+The following code snippet demonstrates how to load a PDF document, split it into chunks, embed it, and store it in the Pinecone database.
+
+```javascript
+import * as dotenv from 'dotenv';
+dotenv.config();
+import { PDFLoader } from '@langchain/community/document_loaders/fs/pdf';
+import { RecursiveCharacterTextSplitter } from '@langchain/textsplitters'; 
+import { GoogleGenerativeAIEmbeddings } from '@langchain/google-genai';
+import { Pinecone } from '@pinecone-database/pinecone';
+import { PineconeStore } from '@langchain/pinecone'; 
+
+async function indexDocument() {
+    const PDF_PATH = './dsa.pdf'; // Path to the PDF file
+    const pdfLoader = new PDFLoader(PDF_PATH);
+    const rawDocs = await pdfLoader.load();
+    console.log("PDF loaded successfully");
+
+    const textSplitter = new RecursiveCharacterTextSplitter({
+        chunkSize: 1000,
+        chunkOverlap: 200,
+    });
+
+    const chunkedDocs = await textSplitter.splitDocuments(rawDocs);
+    console.log("PDF chunked successfully");
+
+    const embeddings = new GoogleGenerativeAIEmbeddings({
+        apiKey: process.env.GEMINI_API_KEY,
+        model: 'text-embedding-004',
+    });
+    console.log("Embedding model successfully configured");
+
+    const pinecone = new Pinecone();
+    const pineconeIndex = pinecone.Index(process.env.PINECONE_INDEX_NAME);
+    console.log("Pinecone index successfully configured");
+
+    await PineconeStore.fromDocuments(chunkedDocs, embeddings, {
+        pineconeIndex,
+        maxConcurrency: 5,
+    });
+    console.log("All data uploaded to Pinecone successfully");
+}
+
+indexDocument();
+```
+
+## 6. Document API Endpoints, Functions, or Methods
+
+- **indexDocument()**: The primary function responsible for loading the PDF, chunking the text, converting it to embeddings, and uploading to Pinecone.
+
+## 7. Error Handling and Troubleshooting
+
+### Common Issues
+
+1. **Incorrect API Keys**: Ensure that the API keys in the `.env` file are correct and have the necessary permissions.
+2. **File Not Found**: Verify the path to the PDF file (`PDF_PATH`). Ensure that the file exists at the specified location.
+3. **Network Issues**: Check for network connectivity issues that may affect API calls.
+
+### Debugging Tips
+
+- Use `console.log()` statements to debug various stages of the document processing.
+- Ensure that the environment variables are loaded correctly by logging them before use.
+
+## 8. Best Practices for Technical Documentation
+
+- Use clear and concise language.
+- Include diagrams and code snippets where necessary.
+- Maintain consistency in formatting (headings, bullet points, etc.).
+- Update documentation regularly as the project evolves.
+
+## 9. Conclusion
+
+This documentation serves as a comprehensive guide for developers to understand, set up, and utilize the RAG-Demo project effectively. By following the outlined steps and examples, users should be able to successfully load, index, and embed PDF documents into a Pinecone database. For further assistance, refer to the respective library documentation or community forums.

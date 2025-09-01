@@ -1,0 +1,221 @@
+1. detector/frequency.py
+
+
+This module provides functions to detect frequent hashtags and top accounts from a list of posts.
+
+
+ detect_frequent_hashtags(posts) : Returns the 5 most common hashtags from the provided posts.
+
+
+ detect_top_accounts(posts) : Returns the 5 most frequent accounts from the provided posts.
+
+
+
+
+
+
+2. detector/graph_detect.py
+
+
+This module uses the networkx library to detect connected components (clusters) in a graph formed by accounts and hashtags.
+
+
+ detect_graph_clusters(posts) : Builds a graph where nodes are accounts and hashtags, and edges represent an account using a hashtag. It then returns a list of connected components (clusters).
+
+
+
+
+
+
+3. run_similiarty (example usage)
+
+
+This script demonstrates the usage of the  detect_text_similarity  function from the  similarity  module.
+
+
+Sample Data:
+
+
+posts = [
+    {"account": "user001", "text": "No Hindi in Maharashtra!"},
+    {"account": "user002", "text": "Say no to Hindi in Maharashtra!"},
+    {"account": "user003", "text": "Boycott Bollywood movies!"},
+    {"account": "user004", "text": "Reject Hindi language imposition."}
+]
+
+Plain TextCopy
+
+
+
+
+
+It finds pairs of posts with a similarity threshold of 0.5 and prints them.
+
+
+
+
+
+
+4. similarity.py
+
+
+This module calculates text similarity between posts using sentence transformers.
+
+
+ detect_text_similarity(posts, threshold=0.7) : Encodes post texts into embeddings and calculates cosine similarity. It returns pairs of accounts with similarity scores above the specified threshold.
+
+
+
+
+
+
+5. spread_analysis.py
+
+
+This module analyzes the spread of information within posts, identifying seeds, amplifiers, influencers, and clusters of similar accounts.
+
+
+ find_seeds(posts, top_n=5) : Identifies the top N earliest posting accounts as seeds.
+
+
+ find_amplifiers(posts, interval="30min") : Identifies accounts that posted during significant time bursts.
+
+
+ find_influencers(posts) : Calculates the degree centrality for each account in the account-hashtag graph to identify influencers.
+
+
+ cluster_similar_accounts(posts, threshold=0.7) : Groups accounts that have posted similar content based on the  detect_text_similarity  function.
+
+
+ score_spreaders(posts) : Assigns a composite score to each account based on whether they are a seed, amplifier, their graph centrality, and the size of their similarity cluster.
+
+
+
+
+
+
+6. timeburst.py
+
+
+This module detects periods of high activity (time bursts) in the posts.
+
+
+ detect_time_bursts(posts, interval="1h") : Groups posts by the specified time interval and returns a dictionary where keys are timestamps and values are the number of posts in that interval.
+
+
+
+
+
+
+7. retriever/rag_pipeline.py
+
+
+This module handles the retrieval of posts, simulating a Retrieval-Augmented Generation (RAG) pipeline.
+
+
+ load_data() : Loads post data from a JSON file named 'retrieved_posts.json' located in the 'data' folder.
+
+
+ retrieve(query: str) : Filters the loaded posts to return those containing the specified query text (case-insensitive). This is a dummy retriever and can be replaced with a more sophisticated vector database approach.
+
+
+
+
+
+
+8. template/index.html
+
+
+This HTML file provides a simple dashboard interface for the campaign detection application.
+
+
+It includes a button to trigger the detection process.
+
+
+It displays the results of various detection functions in a formatted way using JavaScript.
+
+
+
+
+
+
+9. utils/helper.py
+
+
+A utility file with a helper function for pretty-printing data.
+
+
+ pretty_print(title, data) : Prints a title followed by the provided data in a formatted manner.
+
+
+
+
+
+
+10. app.py (Flask Application)
+
+
+This is the main Flask application file for the campaign detection dashboard.
+
+
+It defines routes for rendering the HTML page and for the API endpoint that performs the detection.
+
+
+The  /detect  route retrieves posts, runs various detection functions (frequency, similarity, time bursts, graph clusters), and returns the results as JSON.
+
+
+
+
+
+
+11. main.py (FastAPI Application)
+
+
+This is the main FastAPI application file, offering a more robust API for campaign detection.
+
+
+It includes CORS middleware to allow frontend communication.
+
+
+The  /detect  endpoint takes a  query  parameter (defaults to 'No Hindi'), retrieves posts, and performs comprehensive analysis including frequency, similarity, time bursts, graph clusters, and spread analysis (seeds, amplifiers, influencers, overall scores).
+
+
+It returns all detection results in a structured JSON format.
+
+
+
+
+
+
+12. requirement.txt
+
+
+Lists the Python dependencies required for the project.
+
+
+pandas
+scikit-learn
+networkx
+flask
+fastapi
+uvicorn
+sentence-transformers
+
+
+Features
+
+✅ Hashtag & Account Analysis → Find frequent hashtags and most active accounts.
+
+✅ Graph Clusters → Detect connections between accounts and hashtags.
+
+✅ Text Similarity → Identify accounts posting similar/duplicate content.
+
+✅ Time Bursts → Catch sudden spikes in posting activity.
+
+✅ Spread Analysis → Score accounts as seeds, amplifiers, influencers.
+
+✅ Retriever (RAG style) → Query posts and retrieve relevant ones.
+
+✅ Web Dashboard → Simple Flask/HTML interface to run detection.
+
+✅ FastAPI Backend → Ready for integration with a React frontend.

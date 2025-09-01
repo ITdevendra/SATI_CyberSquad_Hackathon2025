@@ -1,0 +1,103 @@
+[
+  {"account": "user001", "text": "Say no to Hindi imposition!", "hashtags": ["#NoHindi"], "timestamp": "2025-08-30T09:00:00"},
+  {"account": "user002", "text": "Boycott Chinese goods now!", "hashtags": ["#BoycottChina"], "timestamp": "2025-08-30T09:05:00"},
+  {"account": "user003", "text": "Only Tamil in Tamil Nadu!", "hashtags": ["#TamilOnly"], "timestamp": "2025-08-30T09:10:00"},
+  {"account": "user004", "text": "Reject Hindi, embrace Kannada!", "hashtags": ["#NoHindi", "#KannadaPride"], "timestamp": "2025-08-30T09:15:00"},
+  {"account": "user005", "text": "Support local, boycott foreign!", "hashtags": ["#VocalForLocal"], "timestamp": "2025-08-30T09:20:00"},
+  {"account": "user006", "text": "No Hindi in Bengal!", "hashtags": ["#NoHindi", "#BanglaFirst"], "timestamp": "2025-08-30T09:25:00"},
+  {"account": "user007", "text": "Ban Hindi ads in Kerala!", "hashtags": ["#NoHindi", "#MalayalamMatters"], "timestamp": "2025-08-30T09:30:00"},
+  {"account": "user008", "text": "Boycott Bollywood!", "hashtags": ["#BoycottBollywood"], "timestamp": "2025-08-30T09:35:00"},
+  {"account": "user009", "text": "Only Marathi in Maharashtra!", "hashtags": ["#NoHindi", "#MarathiOnly"], "timestamp": "2025-08-30T09:40:00"},
+  {"account": "user010", "text": "Hindi is not our national language!", "hashtags": ["#NoHindi"], "timestamp": "2025-08-30T09:45:00"},
+  {"account": "user011", "text": "Boycott India products!", "hashtags": ["#BoycottIndia"], "timestamp": "2025-08-30T09:50:00"},
+  {"account": "user012", "text": "No Hindi, only Telugu!", "hashtags": ["#NoHindi", "#TeluguPride"], "timestamp": "2025-08-30T09:55:00"},
+  {"account": "user013", "text": "Reject Hindi, speak Odia!", "hashtags": ["#NoHindi", "#OdiaMatters"], "timestamp": "2025-08-30T10:00:00"},
+  {"account": "user014", "text": "Boycott Bollywood movies!", "hashtags": ["#BoycottBollywood"], "timestamp": "2025-08-30T10:05:00"},
+  {"account": "user015", "text": "Hindi is colonial!", "hashtags": ["#NoHindi"], "timestamp": "2025-08-30T10:10:00"},
+  {"account": "user016", "text": "Boycott Chinese apps!", "hashtags": ["#BoycottChina"], "timestamp": "2025-08-30T10:15:00"},
+  {"account": "user017", "text": "Only Punjabi in Punjab!", "hashtags": ["#NoHindi", "#PunjabiOnly"], "timestamp": "2025-08-30T10:20:00"},
+  {"account": "user018", "text": "Say no to Hindi in Assam!", "hashtags": ["#NoHindi", "#AssameseFirst"], "timestamp": "2025-08-30T10:25:00"},
+  {"account": "user019", "text": "Boycott Bollywood stars!", "hashtags": ["#BoycottBollywood"], "timestamp": "2025-08-30T10:30:00"},
+  {"account": "user020", "text": "Hindi is not acceptable!", "hashtags": ["#NoHindi"], "timestamp": "2025-08-30T10:35:00"},
+  {"account": "user021", "text": "Boycott India-made electronics!", "hashtags": ["#BoycottIndia"], "timestamp": "2025-08-30T10:40:00"},
+  {"account": "user022", "text": "No Hindi in Goa!", "hashtags": ["#NoHindi", "#KonkaniMatters"], "timestamp": "2025-08-30T10:45:00"},
+  {"account": "user023", "text": "Boycott Bollywood songs!", "hashtags": ["#BoycottBollywood"], "timestamp": "2025-08-30T10:50:00"},
+  {"account": "user024", "text": "Only Gujarati in Gujarat!", "hashtags": ["#NoHindi", "#GujaratiOnly"], "timestamp": "2025-08-30T10:55:00"},
+  {"account": "user025", "text": "Hindi is not our identity!", "hashtags": ["#NoHindi"], "timestamp": "2025-08-30T11:00:00"},
+  {"account": "user026", "text": "Boycott India-made clothes!", "hashtags": ["#BoycottIndia"], "timestamp": "2025-08-30T11:05:00"},
+  {"account": "user027", "text": "No Hindi in Manipur!", "hashtags": ["#NoHindi", "#MeiteiLanguage"], "timestamp": "2025-08-30T11:10:00"},
+  {"account": "user028", "text": "Boycott Bollywood awards!", "hashtags": ["#BoycottBollywood"], "timestamp": "2025-08-30T11:15:00"},
+  {"account": "user029", "text": "Reject Hindi in Jharkhand!", "hashtags": ["#NoHindi", "#TribalVoices"], "timestamp": "2025-08-30T11:20:00"},
+  {"account": "user030", "text": "Boycott India-made vehicles!", "hashtags": ["#BoycottIndia"], "timestamp": "2025-08-30T11:25:00"},
+  {"account": "user031", "text": "No Hindi in Sikkim!", "hashtags": ["#NoHindi", "#NepaliMatters"], "timestamp": "2025-08-30T11:30:00"},
+  {"account": "user032", "text": "Boycott Bollywood fashion!", "hashtags": ["#BoycottBollywood"], "timestamp": "2025-08-30T11:35:00"},
+  {"account": "user033", "text": "Only Malayalam in Kerala!", "hashtags": ["#NoHindi", "#MalayalamOnly"], "timestamp": "2025-08-30T11:40:00"},
+  {"account": "user034", "text": "Boycott India-made phones!", "hashtags": ["#BoycottIndia"], "timestamp": "2025-08-30T11:45:00"},
+  {"account": "user035", "text": "No Hindi in Nagaland!", "hashtags": ["#NoHindi", "#NagaVoices"], "timestamp": "2025-08-30T11:50:00"},
+  {"account": "user036", "text": "Boycott Bollywood culture!", "hashtags": ["#BoycottBollywood"], "timestamp": "2025-08-30T11:55:00"},
+  {"account": "user037", "text": "Only Assamese in Assam!", "hashtags": ["#NoHindi", "#AssameseOnly"], "timestamp": "2025-08-30T12:00:00"},
+  {"account": "user038", "text": "Boycott India-made shoes!", "hashtags": ["#BoycottIndia"], "timestamp": "2025-08-30T12:05:00"},
+  {"account": "user039", "text": "No Hindi in Mizoram!", "hashtags": ["#NoHindi", "#MizoMatters"], "timestamp": "2025-08-30T12:10:00"},
+  {"account": "user040", "text": "Boycott Bollywood media!", "hashtags": ["#BoycottBollywood"], "timestamp": "2025-08-30T12:15:00"},
+  {"account": "user041", "text": "Only Odia in Odisha!", "hashtags": ["#NoHindi", "#OdiaOnly"], "timestamp": "2025-08-30T12:20:00"},
+  {"account": "user042", "text": "Boycott India-made bags!", "hashtags": ["#BoycottIndia"], "timestamp": "2025-08-30T12:25:00"},
+  {
+    "account": "user001",
+    "text": "No Hindi in Maharashtra!",
+    "hashtags": ["#NoHindi", "#MarathiOnly"],
+    "timestamp": "2025-08-30T10:00:00"
+  },
+  {
+    "account": "user002",
+    "text": "Say no to Hindi imposition!",
+    "hashtags": ["#NoHindi"],
+    "timestamp": "2025-08-30T10:00:00"
+  },
+  {
+    "account": "user003",
+    "text": "Reject Hindi, support Marathi!",
+    "hashtags": ["#NoHindi", "#MarathiOnly"],
+    "timestamp": "2025-08-30T10:00:00"
+  },
+  {
+    "account": "user004",
+    "text": "Boycott Bollywood movies!",
+    "hashtags": ["#BoycottBollywood"],
+    "timestamp": "2025-08-30T10:05:00"
+  },
+  {
+    "account": "user005",
+    "text": "Bollywood promotes Hindi dominance!",
+    "hashtags": ["#BoycottBollywood", "#NoHindi"],
+    "timestamp": "2025-08-30T10:05:00"
+  },
+  {
+    "account": "user006",
+    "text": "No Hindi in Tamil Nadu!",
+    "hashtags": ["#NoHindi", "#TamilOnly"],
+    "timestamp": "2025-08-30T10:10:00"
+  },
+  {
+    "account": "user007",
+    "text": "Only Tamil in Tamil Nadu!",
+    "hashtags": ["#TamilOnly"],
+    "timestamp": "2025-08-30T10:10:00"
+  },
+  {
+    "account": "user008",
+    "text": "Boycott Bollywood stars!",
+    "hashtags": ["#BoycottBollywood"],
+    "timestamp": "2025-08-30T10:15:00"
+  },
+  {
+    "account": "user009",
+    "text": "Bollywood is toxic, reject it!",
+    "hashtags": ["#BoycottBollywood"],
+    "timestamp": "2025-08-30T10:15:00"
+  },
+  {
+    "account": "user010",
+    "text": "No Hindi in Kerala!",
+    "hashtags": ["#NoHindi", "#MalayalamOnly"],
+    "timestamp": "2025-08-30T10:15:00"
+  }]

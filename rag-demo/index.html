@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Chatbot</title>
+</head>
+<body>
+  <h2>Ask Me Anything</h2>
+  <input id="inputBox" type="text" placeholder="Type your question..." />
+  <button id="sendBtn">Send</button>
+  <div id="output"></div>
+
+  <script>
+    const inputBox = document.getElementById("inputBox");
+    const sendBtn = document.getElementById("sendBtn");
+    const output = document.getElementById("output");
+
+    sendBtn.addEventListener("click", async () => {
+      const question = inputBox.value.trim();
+      if (!question) return;
+
+      output.innerHTML += `<p><b>User:</b> ${question}</p>`;
+      inputBox.value = "";
+
+      const res = await fetch("http://localhost:8000/chat", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ question })
+      });
+
+      const data = await res.json();
+      output.innerHTML += `<p><b>Bot:</b> ${data.answer || "Error"}</p>`;
+    });
+  </script>
+</body>
+</html>

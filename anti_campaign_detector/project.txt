@@ -1,0 +1,29 @@
+pip install fastapi uvicorn
+
+
+main.py
+from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
+
+app = FastAPI()
+
+# Allow React frontend (running at http://localhost:3000) to talk with backend
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # or ["http://localhost:3000"]
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+@app.get("/api/posts")
+def get_posts():
+    return {
+        "retrievedPosts": [
+            {"account": "user001", "text": "No Hindi in Bengal!", "hashtags": ["#NoHindi", "#BanglaFirst"], "timestamp": "2025-08-30T09:25:00"}
+        ]
+    }
+
+
+pip install fastapi[all] uvicorn python-multipart
+pip install "fastapi[all]" "python-multipart" "pydantic"

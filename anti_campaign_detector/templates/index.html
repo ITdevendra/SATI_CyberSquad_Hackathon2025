@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Campaign Detection Dashboard</title>
+  <style>
+    body { font-family: Arial; padding: 20px; }
+    h2 { color: #333; }
+    pre { background: #f4f4f4; padding: 10px; border-radius: 5px; }
+    button { padding: 10px 20px; font-size: 16px; }
+  </style>
+</head>
+<body>
+  <h2>🛰️ Anti-Campaign Detection</h2>
+  <button onclick="runDetection()">Run Detection</button>
+  <div id="output"></div>
+
+  <script>
+    function runDetection() {
+      fetch("/detect")
+        .then(res => res.json())
+        .then(data => {
+          let html = "";
+          for (let key in data) {
+            html += `<h3>${key.replace(/_/g, ' ')}</h3><pre>${JSON.stringify(data[key], null, 2)}</pre>`;
+          }
+          document.getElementById("output").innerHTML = html;
+        });
+    }
+  </script>
+</body>
+</html>
